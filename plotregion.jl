@@ -9,7 +9,7 @@ function basic_feasible_point(A::Matrix,b::Vector,set::Vector)
     m,n = size(A)
     @assert length(set) == m "need more indices to define a BFP"
     binds = set # basic variable indices
-    ninds = setdiff(1:size(A,1),binds) # non-basic
+    ninds = setdiff(1:size(A,2),binds) # non-basic
     B = A[:,binds]
     N = A[:,ninds]
     #cb = c[binds]
